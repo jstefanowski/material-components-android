@@ -25,3 +25,14 @@ steps:
     contents: '**/*.apk'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github connection 1'
+    repositoryName: 'jstefanowski/material-components-android'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    releaseNotesSource: 'inline'
+    releaseNotesInline: 'Test release notes'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
