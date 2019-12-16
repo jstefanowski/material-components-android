@@ -37,3 +37,11 @@ steps:
     assets: '**/*.apk'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: '4c541e37-6c7d-4866-a4a2-d7f2afe16e1b/dbbdfd75-d72b-4e5f-8cba-ce9e83bd1537'
+    vstsFeedPackagePublish: 'test_pck_name'
+    versionOption: 'patch'
