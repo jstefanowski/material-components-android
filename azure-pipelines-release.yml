@@ -34,6 +34,6 @@ steps:
     tagSource: 'gitTag'
     releaseNotesSource: 'inline'
     releaseNotesInline: 'Test release notes'
-    assets: '$(build.artifactStagingDirectory)/*.apk'
+    assets: '**/*.apk'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
