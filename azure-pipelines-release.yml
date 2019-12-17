@@ -24,7 +24,11 @@ steps:
   inputs:
     contents: '**/*.apk'
     targetFolder: '$(build.artifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'otherdrop'
+    publishLocation: 'pipeline'
 - task: GitHubRelease@1
   inputs:
     gitHubConnection: 'github connection 1'
