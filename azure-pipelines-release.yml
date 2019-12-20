@@ -36,11 +36,11 @@ steps:
       outputs/apk/release/*.json
     TargetFolder: '$(build.artifactStagingDirectory)/material-builder'
     flattenFolders: true
-- task: PublishPipelineArtifact@1
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'drop'
-    publishLocation: 'pipeline'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: GitHubRelease@1
   inputs:
     gitHubConnection: 'github connection 1'
@@ -48,11 +48,13 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'gitTag'
+    tagPattern: 'v*'
+    title: 'Test release title'
     releaseNotesSource: 'inline'
-    releaseNotesInline: 'Test release notes'
-    assets: '**/*.apk'
+    releaseNotesInline: 'Example release notes'
+    assets: '$(build.artifactStagingDirectory)/material-builder/*.apk'
     changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
+    changeLogType: 'issueBased'
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
