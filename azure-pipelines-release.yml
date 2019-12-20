@@ -52,7 +52,7 @@ steps:
     title: 'Test release title'
     releaseNotesSource: 'inline'
     releaseNotesInline: 'Example release notes'
-    assets: '$(build.artifactStagingDirectory)/material-builder/*.apk'
+    assets: '$(build.artifactStagingDirectory)/**/*.apk'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'issueBased'
 - task: UniversalPackages@0
