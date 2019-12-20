@@ -53,8 +53,7 @@ steps:
     releaseNotesSource: 'inline'
     releaseNotesInline: 'Example release notes'
     assets: '$(build.artifactStagingDirectory)/**/*.apk'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'issueBased'
+    addChangeLog: false
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
