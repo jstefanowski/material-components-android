@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: rootProject.file("jacoco.gradle")
 
 dependencies {
   api 'com.google.dagger:dagger:2.23.1'
