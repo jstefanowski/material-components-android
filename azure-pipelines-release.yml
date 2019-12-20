@@ -22,12 +22,24 @@ steps:
     tasks: 'assembleRelease'
 - task: CopyFiles@2
   inputs:
-    contents: '**/*.apk'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/catalog/build'
+    Contents: |
+      outputs/apk/release/*.apk
+      outputs/apk/release/*.json
+    TargetFolder: '$(build.artifactStagingDirectory)/material-catalog'
+    flattenFolders: true
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/material-theme-builder/build'
+    Contents: |
+      outputs/apk/release/*.apk
+      outputs/apk/release/*.json
+    TargetFolder: '$(build.artifactStagingDirectory)/material-builder'
+    flattenFolders: true
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
-    artifact: 'otherdrop'
+    artifact: 'drop'
     publishLocation: 'pipeline'
 - task: GitHubRelease@1
   inputs:
