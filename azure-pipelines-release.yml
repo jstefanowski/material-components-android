@@ -42,19 +42,21 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 - task: GitHubRelease@1
+  enabled: false
   inputs:
     gitHubConnection: 'github connection 1'
     repositoryName: 'jstefanowski/material-components-android'
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'gitTag'
-    tagPattern: 'v1.0.*'
+    tagPattern: 'v*.*.*'
     title: 'Test release title'
     releaseNotesSource: 'inline'
     releaseNotesInline: 'Example release notes'
     assets: '$(build.artifactStagingDirectory)/**/*.apk'
     addChangeLog: false
 - task: UniversalPackages@0
+  enabled: false
   inputs:
     command: 'publish'
     publishDirectory: '$(Build.ArtifactStagingDirectory)'
