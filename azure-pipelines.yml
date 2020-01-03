@@ -26,5 +26,5 @@ steps:
   inputs:
     codeCoverageTool: 'JaCoCo'
     summaryFileLocation: '**/jacocoTestReport.xml'
-    pathToSources: '$(System.DefaultWorkingDirectory)/material-components-android/catalog/java'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/material-components-android/build/coverage-report'
+    pathToSources: '$(System.DefaultWorkingDirectory)/catalog/java'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/build/coverage-report'
