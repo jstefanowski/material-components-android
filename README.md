@@ -1,5 +1,4 @@
-[![Build Status](https://img.shields.io/travis/material-components/material-components-android/master.svg)](https://travis-ci.org/material-components/material-components-android/)
-[![Chat](https://img.shields.io/discord/259087343246508035.svg)](https://discord.gg/material-components)
+[![Build Status](https://dev.azure.com/jstefanowski/Material%20components/_apis/build/status/Run%20tests%20pipeline?branchName=master)](https://dev.azure.com/jstefanowski/Material%20components/_build/latest?definitionId=1&branchName=master)
 
 # Material Components for Android
 
