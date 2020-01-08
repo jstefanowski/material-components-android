@@ -13,7 +13,9 @@ steps:
     script: |
       # Write your commands here
       
-      curl https://rclone.org/install.sh | sudo bash
+      # curl https://rclone.org/install.sh | sudo bash
+      
+      rclone config
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
